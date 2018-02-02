@@ -13,12 +13,12 @@ All you have to do is to add dependency to your project and enable features in `
 <dependency>
   <groupId>io.github.createam-labs</groupId>
   <artifactId>spring-boot-starter-heroku</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
 </dependency>
 ```
 #### gradle
 ```groovy
-compile group: 'io.github.createam-labs', name: 'spring-boot-starter-heroku', version: '0.1.1'
+compile('io.github.createam-labs:spring-boot-starter-heroku:0.1.2')
 ````
 ##  Features 
 | name | description | property |

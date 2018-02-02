@@ -57,3 +57,5 @@ hs_err_pid*
 .idea/modules/spring-boot-starter-heroku_test.iml
 .idea/workspace.xml
 build/
+/gradle.properties
+/build-release.gradle
