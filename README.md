@@ -29,6 +29,15 @@ compile('io.github.createam-labs:spring-boot-starter-heroku:0.1.2')
 Application which works with this starter can be found [here](http://createam-labs.herokuapp.com/)  
 Source code of example app can be found [here](https://github.com/createam-labs/createam-labs-test-services)
 
+## Release notes
+
+#### v0.1.2
+- fixed redirection address after https enforcing
+  
+#### v0.1.1
+- initial release
+
+
 License
 ----
 MIT
