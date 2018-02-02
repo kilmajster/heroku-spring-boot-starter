@@ -49,3 +49,11 @@ hs_err_pid*
 /build/
 /.idea/
 /.gradle/
+.gradle/
+.idea/compiler.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules/spring-boot-starter-heroku_main.iml
+.idea/modules/spring-boot-starter-heroku_test.iml
+.idea/workspace.xml
+build/
