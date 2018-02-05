@@ -1,4 +1,6 @@
 # Heroku spring boot starter 
+Collection of cool features that might be especially useful while developing spring boot application on heroku 🤖
+
 [![Build Status](https://travis-ci.org/createam-labs/spring-boot-starter-heroku.svg?branch=master)](https://travis-ci.org/createam-labs/spring-boot-starter-heroku)
 [![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
 [![code coverage](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku/branch/master/graph/badge.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
