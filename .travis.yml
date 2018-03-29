@@ -7,9 +7,9 @@ addons:
       - oracle-java8-installer
 
 before_script:
-  - chmod +x gradlew
+  - chmod +x mvnw
 script:
-  - ./gradlew check
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
