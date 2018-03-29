@@ -26,7 +26,7 @@ compile('io.github.createam-labs:spring-boot-starter-heroku:0.1.2')
 ##  Features 
 | name | description | property |
 | ------ | ------ | ------ |
-| 🔒httpsEnforcer | enforce https under the thymeleaf templates (_note that, it will work after you deploy application to heroku_) | `heroku.thymeleaf.enforceHttps=true`
+| 🔒httpsEnforcer | enforce https under the [thymeleaf](https://www.thymeleaf.org/) templates (_note that, it will work after you deploy application to heroku_) | `heroku.thymeleaf.enforceHttps=true`
 
 ## Examples
 Application which works with this starter can be found [here](http://createam-labs.herokuapp.com/)  
