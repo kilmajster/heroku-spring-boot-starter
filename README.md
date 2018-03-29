@@ -1,5 +1,5 @@
 # Heroku spring boot starter 
-Collection of cool features which might be especially useful while developing [spring boot](https://projects.spring.io/spring-boot/) application on [heroku](https://www.heroku.com/) 🤖
+Collection of cool features which might be especially useful while developing [spring boot](https://projects.spring.io/spring-boot/) application on [heroku](https://www.heroku.com/) ☁️
 
 [![Build Status](https://img.shields.io/travis/createam-labs/spring-boot-starter-heroku/master.svg?logo=travis)](https://travis-ci.org/createam-labs/spring-boot-starter-heroku)
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
