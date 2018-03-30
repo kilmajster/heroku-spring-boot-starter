@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse
 
 
 @RunWith(MockitoJUnitRunner::class)
-class HttpsEnforcerTest {
+class HttpsEnforcerKotlinTest {
 
     private val request: HttpServletRequest = mock(HttpServletRequest::class.java)
     private val response: HttpServletResponse = mock(HttpServletResponse::class.java)
     private val chain: FilterChain = mock(FilterChain::class.java)
 
-    private var TEST_HEROKU_URL: String = "for-sure-no-existing-address.xyz"
-    private var EXPECTED_HEROKU_URL: String = "https://for-sure-no-existing-address.xyz"
+    private var TEST_HEROKU_URL: String = "createam-labs.herokuapp.com"
+    private var EXPECTED_HEROKU_URL: String = "https://createam-labs.herokuapp.com"
 
     @Test
     fun shouldEnforceHttpsOnHeroku() {

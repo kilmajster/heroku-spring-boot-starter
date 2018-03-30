@@ -16,10 +16,10 @@ class HttpsEnforcer(
         this.filterConfig = filterConfig
     }
 
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
+    override fun doFilter(servletRequest: ServletRequest?, servletResponse: ServletResponse?, chain: FilterChain?) {
 
-        val request = request as HttpServletRequest
-        val response = response as HttpServletResponse
+        val request = servletRequest as HttpServletRequest
+        val response = servletResponse as HttpServletResponse
 
         if (request.getHeader(X_FORWARDED_PROTO) != null
                 && request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
