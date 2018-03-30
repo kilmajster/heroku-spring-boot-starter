@@ -42,4 +42,37 @@ class HttpsEnforcerKotlinTest {
         val expectedUrl: String = EXPECTED_HEROKU_URL + "/api"
         verify(response, times(1)).sendRedirect(expectedUrl)
     }
+
+    @Test
+    fun shouldNotEnforceHttps_onHerokuOverHttps() {
+        val httpsEnforcer = HttpsEnforcer()
+        `when`(request.getHeader("x-forwarded-proto")).thenReturn("https")
+        `when`(request.serverName).thenReturn(TEST_HEROKU_URL)
+        `when`(request.requestURI).thenReturn("/api")
+
+        httpsEnforcer.doFilter(request, response, chain)
+
+        verifyZeroInteractions(response)
+    }
+
+    @Test
+    fun shouldDoNothing_whenHeaderIsEmpty() {
+        val httpsEnforcer = HttpsEnforcer()
+        `when`(request.getHeader("x-forwarded-proto")).thenReturn(null)
+
+        httpsEnforcer.doFilter(request, response, chain)
+
+        verifyZeroInteractions(response)
+    }
+
+    @Test
+    fun shouldDoNothing_overHttps() {
+        val httpsEnforcer = HttpsEnforcer()
+        `when`(request.getHeader("x-forwarded-proto")).thenReturn("https")
+
+        httpsEnforcer.doFilter(request, response, chain)
+
+        verifyZeroInteractions(response)
+    }
+
 }
