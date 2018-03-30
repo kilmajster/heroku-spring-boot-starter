@@ -60,5 +60,5 @@ build/
 /target/
 *.iml
 
-mvnw
-mvnw.cmd
+/mvnw
+/mvnw.cmd
