@@ -9,7 +9,7 @@ addons:
 before_script:
   - chmod +x mvnw
 script:
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./mvnw install
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
