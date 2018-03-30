@@ -41,13 +41,13 @@ public class HttpsEnforcerJavaTest {
     public void shouldEnforceHttps_onHerokuOverHttp() throws IOException {
         when(request.getHeader("x-forwarded-proto")).thenReturn("http");
         when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
-        when(request.getRequestURI()).thenReturn(TEST_REQUEST_URI);
+        when(request.getRequestURI()).thenReturn("");
 
         enforcer.doFilter(request, response, chain);
 
         ArgumentCaptor<String> redirectCaptor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(redirectCaptor.capture());
-        assertThat(redirectCaptor.getValue()).isEqualTo("https://" + TEST_SERVER_NAME + TEST_REQUEST_URI);
+        assertThat(redirectCaptor.getValue()).isEqualTo("https://" + TEST_SERVER_NAME);
     }
 
     @Test
@@ -79,5 +79,16 @@ public class HttpsEnforcerJavaTest {
         verifyZeroInteractions(response);
     }
 
+    @Test
+    public void shouldRedirectToTheSameUrl() throws IOException {
+        when(request.getHeader("x-forwarded-proto")).thenReturn("http");
+        when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
+        when(request.getRequestURI()).thenReturn(TEST_REQUEST_URI);
 
+        enforcer.doFilter(request, response, chain);
+
+        ArgumentCaptor<String> redirectCaptor = ArgumentCaptor.forClass(String.class);
+        verify(response).sendRedirect(redirectCaptor.capture());
+        assertThat(redirectCaptor.getValue()).isEqualTo("https://" + TEST_SERVER_NAME + TEST_REQUEST_URI);
+    }
 }

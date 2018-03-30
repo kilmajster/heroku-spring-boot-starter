@@ -16,7 +16,11 @@ class HttpsEnforcer(
         this.filterConfig = filterConfig
     }
 
-    override fun doFilter(servletRequest: ServletRequest?, servletResponse: ServletResponse?, chain: FilterChain?) {
+    override fun doFilter(
+            servletRequest: ServletRequest?,
+            servletResponse: ServletResponse?,
+            chain: FilterChain
+    ) {
 
         val request = servletRequest as HttpServletRequest
         val response = servletResponse as HttpServletResponse
@@ -26,7 +30,7 @@ class HttpsEnforcer(
             response.sendRedirect("https://" + request.serverName + request.requestURI)
         }
 
-        chain!!.doFilter(request, response)
+        chain.doFilter(request, response)
     }
 
     override fun destroy() {}
