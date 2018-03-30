@@ -7,8 +7,6 @@ Collection of cool features which might be especially useful while developing [s
 [![code coverage](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku/branch/master/graph/badge.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
 [![License: MIT](https://img.shields.io/badge/licence-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-![logos](https://i.imgur.com/oJgq4p8.png)
-
 ## 🛠 Configurtion
 All you have to do is to add dependency to your project and enable features in `application.properties` file 😎
 #### maven
