@@ -13,16 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HttpsEnforcerJavaTest {
 
     private static final String TEST_SERVER_NAME = "createam-labs.herokuapp.com";
     private static final String TEST_REQUEST_URI = "/for-sure-not-exist";
-
 
     private HttpsEnforcer enforcer;
 
@@ -35,12 +32,10 @@ public class HttpsEnforcerJavaTest {
     @Mock
     private FilterChain chain;
 
-
     @Before
     public void setUp() {
         enforcer = new HttpsEnforcer();
     }
-
 
     @Test
     public void shouldEnforceHttps_onHerokuOverHttp() throws IOException {
@@ -56,7 +51,7 @@ public class HttpsEnforcerJavaTest {
     }
 
     @Test
-    public void shouldNotEnforceHttps_onHerokuOverHttps() throws IOException {
+    public void shouldNotEnforceHttps_onHerokuOverHttps() {
         when(request.getHeader("x-forwarded-proto")).thenReturn("https");
         when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
         when(request.getRequestURI()).thenReturn(TEST_REQUEST_URI);
@@ -65,4 +60,24 @@ public class HttpsEnforcerJavaTest {
 
         verifyZeroInteractions(response);
     }
+
+    @Test
+    public void shouldDoNothing_whenHeaderIsEmpty() {
+        when(request.getHeader("x-forwarded-proto")).thenReturn(null);
+
+        enforcer.doFilter(request, response, chain);
+
+        verifyZeroInteractions(response);
+    }
+
+    @Test
+    public void shouldDoNothing_overHttps() {
+        when(request.getHeader("x-forwarded-proto")).thenReturn("https");
+
+        enforcer.doFilter(request, response, chain);
+
+        verifyZeroInteractions(response);
+    }
+
+
 }
