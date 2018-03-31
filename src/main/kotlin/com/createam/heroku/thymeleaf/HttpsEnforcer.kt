@@ -11,7 +11,7 @@ class HttpsEnforcer(
         private var X_FORWARDED_PROTO: String = "x-forwarded-proto"
 ) : Filter {
 
-    private lateinit var filterConfig: FilterConfig
+    lateinit var filterConfig: FilterConfig
 
     @Generated
     override fun init(filterConfig: FilterConfig) {

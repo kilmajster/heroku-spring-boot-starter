@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class HttpsEnforcerJavaTest {
 
     @Mock
     private FilterChain chain;
+
+    @Mock
+    private FilterConfig mockedFilterConfig;
 
     @Before
     public void setUp() {
@@ -90,5 +94,19 @@ public class HttpsEnforcerJavaTest {
         ArgumentCaptor<String> redirectCaptor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(redirectCaptor.capture());
         assertThat(redirectCaptor.getValue()).isEqualTo("https://" + TEST_SERVER_NAME + TEST_REQUEST_URI);
+    }
+
+    @Test
+    public void shouldDoNothing_onDestroy() {
+        enforcer.destroy();
+
+        verifyZeroInteractions(mockedFilterConfig);
+    }
+
+    @Test
+    public void shouldInitWithFilterConfig() {
+        enforcer.init(mockedFilterConfig);
+
+        assertThat(enforcer.filterConfig).isEqualTo(mockedFilterConfig);
     }
 }
