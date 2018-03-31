@@ -109,4 +109,9 @@ public class HttpsEnforcerJavaTest {
 
         assertThat(enforcer.filterConfig).isEqualTo(mockedFilterConfig);
     }
+
+    @Test
+    public void filterConfigShouldBeNullBeforeInit() {
+        assertThat(enforcer.filterConfig).isNull();
+    }
 }
