@@ -1,6 +1,5 @@
 package com.createam.heroku.thymeleaf
 
-import lombok.Generated
 import javax.servlet.*
 import javax.servlet.FilterConfig
 import javax.servlet.http.HttpServletRequest
@@ -13,7 +12,6 @@ class HttpsEnforcer(
 
     lateinit var filterConfig: FilterConfig
 
-    @Generated
     override fun init(filterConfig: FilterConfig) {
         this.filterConfig = filterConfig
     }
@@ -31,6 +29,5 @@ class HttpsEnforcer(
         chain.doFilter(request, response)
     }
 
-    @Generated
     override fun destroy() {}
 }
