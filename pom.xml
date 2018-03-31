@@ -200,7 +200,7 @@
                 <version>${jacoco-maven-plugin.version}</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/*Config.*</exclude>
+                        <exclude>com.createam.heroku.autoconfiguration</exclude>
                     </excludes>
                 </configuration>
                 <executions>
