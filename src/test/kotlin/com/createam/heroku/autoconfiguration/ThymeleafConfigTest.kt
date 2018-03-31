@@ -1,5 +1,6 @@
 package com.createam.heroku.autoconfiguration
 
+import com.createam.heroku.thymeleaf.HttpsEnforcer
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,9 +18,10 @@ class ThymeleafConfigTest {
     fun shouldCreateHttpsEnforcer() {
         val thymeleafConfig = ThymeleafConfig()
 
-        val result = thymeleafConfig.httpsEnforcer()
+        val enforcer = thymeleafConfig.httpsEnforcer()
 
-        assertThat(result).isNotNull()
+        assertThat(enforcer).isNotNull()
+        assertThat(enforcer).isInstanceOf(HttpsEnforcer::class.java)
     }
 
     @Test
