@@ -5,7 +5,7 @@ Collection of cool features which might be especially useful while developing [s
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
 [![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg??colorB=ff69b4)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
 [![code coverage](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku/branch/master/graph/badge.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
-[![License: MIT](https://img.shields.io/badge/licence-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## 🛠 Configurtion
 All you have to do is to add dependency to your project and enable features in `application.properties` file 😎
