@@ -4,7 +4,7 @@ Collection of cool features which might be especially useful while developing [s
 [![Build Status](https://img.shields.io/travis/createam-labs/spring-boot-starter-heroku/master.svg?logo=travis)](https://travis-ci.org/createam-labs/spring-boot-starter-heroku)
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
 [![coverage](https://img.shields.io/codecov/c/github/createam-labs/spring-boot-starter-heroku.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
-[![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg?colorB=3399ff)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
+[![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
 [![License: MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://opensource.org/licenses/MIT)
 
