@@ -6,10 +6,8 @@ addons:
     packages:
       - oracle-java8-installer
 
-before_script:
-  - chmod +x mvnw
 script:
-  - ./mvnw cobertura:cobertura
+  - mvn cobertura:cobertura
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
