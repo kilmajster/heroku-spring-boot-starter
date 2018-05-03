@@ -174,9 +174,9 @@
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
-                        <phase>verify</phase>
+                        <!--<phase>verify</phase>-->
                         <!--flip lines to sign-->
-                        <!--<phase>none</phase>-->
+                        <phase>none</phase>
                         <goals>
                             <goal>sign</goal>
                         </goals>
