@@ -4,9 +4,8 @@ import com.createam.heroku.https.HttpsEnforcer
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Matchers
 import org.mockito.Mockito.*
-import org.mockito.runners.MockitoJUnitRunner
+import org.mockito.junit.MockitoJUnitRunner
 import javax.servlet.FilterChain
 import javax.servlet.FilterConfig
 import javax.servlet.http.HttpServletRequest
@@ -27,7 +26,7 @@ class HttpsEnforcerKotlinTest {
     @Test
     fun shouldEnforceHttpsOnHeroku() {
         val httpsEnforcer = HttpsEnforcer()
-        `when`(request.getHeader(Matchers.eq("x-forwarded-proto"))).thenReturn(TEST_HEROKU_URL)
+        `when`(request.getHeader(eq("x-forwarded-proto"))).thenReturn(TEST_HEROKU_URL)
 
         httpsEnforcer.doFilter(request, response, chain)
 
@@ -37,7 +36,7 @@ class HttpsEnforcerKotlinTest {
     @Test
     fun shouldRedirectToSameUrlOnHeroku() {
         val httpsEnforcer = HttpsEnforcer()
-        `when`(request.getHeader(Matchers.eq("x-forwarded-proto"))).thenReturn(TEST_HEROKU_URL)
+        `when`(request.getHeader(eq("x-forwarded-proto"))).thenReturn(TEST_HEROKU_URL)
         `when`(request.serverName).thenReturn(TEST_HEROKU_URL)
         `when`(request.requestURI).thenReturn("/api")
 
@@ -51,8 +50,6 @@ class HttpsEnforcerKotlinTest {
     fun shouldNotEnforceHttps_onHerokuOverHttps() {
         val httpsEnforcer = HttpsEnforcer()
         `when`(request.getHeader("x-forwarded-proto")).thenReturn("https")
-        `when`(request.serverName).thenReturn(TEST_HEROKU_URL)
-        `when`(request.requestURI).thenReturn("/api")
 
         httpsEnforcer.doFilter(request, response, chain)
 
