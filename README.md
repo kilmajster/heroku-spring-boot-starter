@@ -6,6 +6,7 @@ Collection of cool features which might be especially useful while developing [s
 [![coverage](https://img.shields.io/codecov/c/github/createam-labs/spring-boot-starter-heroku.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
 [![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/createam-labs/spring-boot-starter-heroku)
 [![License: MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://opensource.org/licenses/MIT)
 
 ## 🛠 Configuration
