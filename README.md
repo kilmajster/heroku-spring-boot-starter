@@ -36,6 +36,7 @@ Source code of example app can be found [here](https://github.com/createam-labs/
 
 #### v1.0
 - added support for mustache templates
+- added tests
 
 #### v0.1.2
 - fixed redirection address after https enforcing

@@ -1,20 +1,23 @@
 package com.createam.heroku.thymeleaf;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.createam.heroku.https.HttpsEnforcer;
 
@@ -59,8 +62,6 @@ public class HttpsEnforcerJavaTest {
     @Test
     public void shouldNotEnforceHttps_onHerokuOverHttps() {
         when(request.getHeader("x-forwarded-proto")).thenReturn("https");
-        when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
-        when(request.getRequestURI()).thenReturn(TEST_REQUEST_URI);
 
         enforcer.doFilter(request, response, chain);
 
