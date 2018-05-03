@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.createam.heroku.autoconfiguration.ThymeleafConfig
+  com.createam.heroku.autoconfiguration.HttpsConfig

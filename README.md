@@ -8,7 +8,7 @@ Collection of cool features which might be especially useful while developing [s
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
 [![License: MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://opensource.org/licenses/MIT)
 
-## 🛠 Configurtion
+## 🛠 Configuration
 All you have to do is to add dependency to your project and enable features in `application.properties` file 😎
 #### maven
 ```xml
@@ -25,13 +25,16 @@ compile('io.github.createam-labs:spring-boot-starter-heroku:0.1.2')
 ##  Features 
 | name | description | property |
 | ------ | ------ | ------ |
-| 🔒httpsEnforcer | enforce https under the [thymeleaf](https://www.thymeleaf.org/) templates (_note that, it will work after you deploy application to heroku_) | `heroku.thymeleaf.enforceHttps=true`
+| 🔒httpsEnforcer | enforce https under the [thymeleaf](https://www.thymeleaf.org/) and [mustache](https://mustache.github.io/) templates (_note that, it will work after you deploy application to heroku_) | `heroku.enforceHttps=true`
 
 ## Examples
 Application which works with this starter can be found [here](http://createam-labs.herokuapp.com/)  
 Source code of example app can be found [here](https://github.com/createam-labs/createam-labs-test-services)
 
 ## Release notes
+
+#### v1.0
+- added support for mustache templates
 
 #### v0.1.2
 - fixed redirection address after https enforcing

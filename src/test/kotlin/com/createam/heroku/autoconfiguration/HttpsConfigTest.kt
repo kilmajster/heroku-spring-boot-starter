@@ -1,6 +1,6 @@
 package com.createam.heroku.autoconfiguration
 
-import com.createam.heroku.thymeleaf.HttpsEnforcer
+import com.createam.heroku.https.HttpsEnforcer
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,15 +10,15 @@ import org.slf4j.Logger
 
 
 @RunWith(MockitoJUnitRunner::class)
-class ThymeleafConfigTest {
+class HttpsConfigTest {
 
     private val mockedLogger = Mockito.mock(Logger::class.java)
 
     @Test
     fun shouldCreateHttpsEnforcer() {
-        val thymeleafConfig = ThymeleafConfig()
+        val httpsConfig = HttpsConfig()
 
-        val enforcer = thymeleafConfig.httpsEnforcer()
+        val enforcer = httpsConfig.httpsEnforcer()
 
         assertThat(enforcer).isNotNull()
         assertThat(enforcer).isInstanceOf(HttpsEnforcer::class.java)
@@ -26,10 +26,10 @@ class ThymeleafConfigTest {
 
     @Test
     fun shouldLogThatEnforcerIsEnable() {
-        val thymeleafConfig = ThymeleafConfig()
-        thymeleafConfig.logger = mockedLogger
+        val httpsConfig = HttpsConfig()
+        httpsConfig.logger = mockedLogger
 
-        thymeleafConfig.httpsEnforcer()
+        httpsConfig.httpsEnforcer()
 
         Mockito.verify(mockedLogger, Mockito.times(1)).info("Heroku https enforce is enable")
     }

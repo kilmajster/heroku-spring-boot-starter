@@ -1,4 +1,4 @@
-package com.createam.heroku.thymeleaf
+package com.createam.heroku.https
 
 import javax.servlet.*
 import javax.servlet.FilterConfig

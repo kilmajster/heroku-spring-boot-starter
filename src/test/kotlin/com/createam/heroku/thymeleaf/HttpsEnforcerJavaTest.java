@@ -16,6 +16,8 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
+import com.createam.heroku.https.HttpsEnforcer;
+
 @RunWith(MockitoJUnitRunner.class)
 public class HttpsEnforcerJavaTest {
 
