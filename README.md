@@ -4,7 +4,7 @@ Collection of cool features which might be especially useful while developing [s
 [![Build Status](https://img.shields.io/travis/createam-labs/spring-boot-starter-heroku/master.svg?logo=travis)](https://travis-ci.org/createam-labs/spring-boot-starter-heroku)
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
 [![coverage](https://img.shields.io/codecov/c/github/createam-labs/spring-boot-starter-heroku.svg)](https://codecov.io/gh/createam-labs/spring-boot-starter-heroku)
-[![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C0.1.2%7Cjar)
+[![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C1.0%7Cjar)
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/createam-labs/spring-boot-starter-heroku)
 [![License: MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://opensource.org/licenses/MIT)
@@ -13,39 +13,15 @@ Collection of cool features which might be especially useful while developing [s
 All you have to do is to add dependency to your project and enable features in `application.properties` file 😎
 #### maven
 ```xml
-  <repositories>
-    <repository>
-      <id>maven-snapshots</id>
-      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <dependencies>
-    <dependency>
-      <groupId>io.github.createam-labs</groupId>
-      <artifactId>spring-boot-starter-heroku</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-  ...
-  </dependencies>
+<dependency>
+  <groupId>io.github.createam-labs</groupId>
+  <artifactId>spring-boot-starter-heroku</artifactId>
+  <version>1.0</version>
+</dependency>
 ```
 #### gradle
 ```groovy
-maven { 
-  url "https://oss.sonatype.org/content/repositories/snapshots" 
-}
-
-dependencies {
-  compile('io.github.createam-labs:spring-boot-starter-heroku:1.0-SNAPSHOT')
-}
-
+compile('io.github.createam-labs:spring-boot-starter-heroku:1.0')
 ````
 ##  Features 
 | name | description | property |
