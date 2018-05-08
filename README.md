@@ -13,15 +13,39 @@ Collection of cool features which might be especially useful while developing [s
 All you have to do is to add dependency to your project and enable features in `application.properties` file 😎
 #### maven
 ```xml
-<dependency>
-  <groupId>io.github.createam-labs</groupId>
-  <artifactId>spring-boot-starter-heroku</artifactId>
-  <version>1.0-SNAPSHOT</version>
-</dependency>
+  <repositories>
+    <repository>
+      <id>maven-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.github.createam-labs</groupId>
+      <artifactId>spring-boot-starter-heroku</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  ...
+  </dependencies>
 ```
 #### gradle
 ```groovy
-compile('io.github.createam-labs:spring-boot-starter-heroku:1.0-SNAPSHOT')
+maven { 
+  url "https://oss.sonatype.org/content/repositories/snapshots" 
+}
+
+dependencies {
+  compile('io.github.createam-labs:spring-boot-starter-heroku:1.0-SNAPSHOT')
+}
+
 ````
 ##  Features 
 | name | description | property |
