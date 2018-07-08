@@ -35,7 +35,7 @@ Source code of example app can be found [here](https://github.com/createam-labs/
 ## Release notes
 
 #### v1.1
-- fixed broken release
+- fixed broken release 🤦‍♂️
 
 #### v1.0
 - added support for mustache templates
