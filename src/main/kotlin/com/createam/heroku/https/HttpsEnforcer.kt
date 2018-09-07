@@ -21,8 +21,7 @@ class HttpsEnforcer(
         val request = servletRequest as HttpServletRequest
         val response = servletResponse as HttpServletResponse
 
-        if (request.getHeader(X_FORWARDED_PROTO) != null
-                && request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
+        if (request.getHeader(X_FORWARDED_PROTO) != null && request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
             response.sendRedirect("https://" + request.serverName + request.requestURI)
         }
 
