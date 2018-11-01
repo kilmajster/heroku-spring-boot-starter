@@ -1,7 +1,4 @@
 
-```diff
-this will be highlighted in green
-```
 
 # Heroku spring boot starter 
 Collection of cool features which might be especially useful while developing [spring boot](https://projects.spring.io/spring-boot/) application on [heroku](https://www.heroku.com/) ☁️
