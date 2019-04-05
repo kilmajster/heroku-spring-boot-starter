@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 
-class HttpsEnforcer(
-        private var X_FORWARDED_PROTO: String = "x-forwarded-proto"
-) : Filter {
+class HttpsEnforcer: Filter {
+
+    companion object {
+        const val X_FORWARDED_PROTO: String = "x-forwarded-proto"
+    }
 
     lateinit var filterConfig: FilterConfig
 
@@ -21,12 +23,15 @@ class HttpsEnforcer(
         val request = servletRequest as HttpServletRequest
         val response = servletResponse as HttpServletResponse
 
-        if (request.getHeader(X_FORWARDED_PROTO) != null && request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
-            response.sendRedirect("https://" + request.serverName + request.requestURI)
+        if (isHttpRequest(request)) {
+            response.sendRedirect("https://${request.serverName}${request.requestURI}")
         }
 
         chain.doFilter(request, response)
     }
+
+    fun isHttpRequest(request: HttpServletRequest) =
+            request.getHeader(X_FORWARDED_PROTO) != null && request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0
 
     override fun destroy() {}
 }

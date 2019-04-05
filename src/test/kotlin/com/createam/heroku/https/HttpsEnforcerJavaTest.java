@@ -1,4 +1,4 @@
-package com.createam.heroku.thymeleaf;
+package com.createam.heroku.https;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
@@ -18,8 +18,6 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import com.createam.heroku.https.HttpsEnforcer;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HttpsEnforcerJavaTest {

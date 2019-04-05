@@ -1,6 +1,5 @@
-package com.createam.heroku.thymeleaf
+package com.createam.heroku.https
 
-import com.createam.heroku.https.HttpsEnforcer
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
