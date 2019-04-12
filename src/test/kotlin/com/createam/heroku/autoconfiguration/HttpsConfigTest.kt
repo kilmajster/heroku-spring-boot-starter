@@ -5,6 +5,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 import org.slf4j.Logger
 
@@ -31,6 +32,6 @@ class HttpsConfigTest {
 
         httpsConfig.httpsEnforcer()
 
-        Mockito.verify(mockedLogger, Mockito.times(1)).info("Heroku https enforce is enable")
+        verify(mockedLogger).info("Heroku https enforce is enable")
     }
 }

@@ -1,6 +1,7 @@
 package com.createam.heroku.https
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.*
@@ -14,22 +15,32 @@ import javax.servlet.http.HttpServletResponse
 @RunWith(MockitoJUnitRunner::class)
 class HttpsEnforcerKotlinTest {
 
-    private val request: HttpServletRequest = mock(HttpServletRequest::class.java)
-    private val response: HttpServletResponse = mock(HttpServletResponse::class.java)
-    private val chain: FilterChain = mock(FilterChain::class.java)
-    private val mockedFilterConfig = mock(FilterConfig::class.java)
+    companion object {
+        const val TEST_HEROKU_URL: String = "createam-labs.herokuapp.com"
+        const val EXPECTED_HEROKU_URL: String = "https://createam-labs.herokuapp.com"
+    }
 
-    private var TEST_HEROKU_URL: String = "createam-labs.herokuapp.com"
-    private var EXPECTED_HEROKU_URL: String = "https://createam-labs.herokuapp.com"
+    lateinit var request: HttpServletRequest
+    lateinit var response: HttpServletResponse
+    lateinit var filterChain: FilterChain
+    lateinit var filterConfig: FilterConfig
+
+    @Before
+    fun setUp() {
+        request = mock(HttpServletRequest::class.java)
+        response = mock(HttpServletResponse::class.java)
+        filterChain = mock(FilterChain::class.java)
+        filterConfig = mock(FilterConfig::class.java)
+    }
 
     @Test
     fun shouldEnforceHttpsOnHeroku() {
         val httpsEnforcer = HttpsEnforcer()
         `when`(request.getHeader(eq("x-forwarded-proto"))).thenReturn(TEST_HEROKU_URL)
 
-        httpsEnforcer.doFilter(request, response, chain)
+        httpsEnforcer.doFilter(request, response, filterChain)
 
-        verify(chain, times(1)).doFilter(request, response)
+        verify(filterChain).doFilter(request, response)
     }
 
     @Test
@@ -39,10 +50,10 @@ class HttpsEnforcerKotlinTest {
         `when`(request.serverName).thenReturn(TEST_HEROKU_URL)
         `when`(request.requestURI).thenReturn("/api")
 
-        httpsEnforcer.doFilter(request, response, chain)
+        httpsEnforcer.doFilter(request, response, filterChain)
 
-        val expectedUrl: String = EXPECTED_HEROKU_URL + "/api"
-        verify(response, times(1)).sendRedirect(expectedUrl)
+        val expectedUrl = "$EXPECTED_HEROKU_URL/api"
+        verify(response).sendRedirect(expectedUrl)
     }
 
     @Test
@@ -50,7 +61,7 @@ class HttpsEnforcerKotlinTest {
         val httpsEnforcer = HttpsEnforcer()
         `when`(request.getHeader("x-forwarded-proto")).thenReturn("https")
 
-        httpsEnforcer.doFilter(request, response, chain)
+        httpsEnforcer.doFilter(request, response, filterChain)
 
         verifyZeroInteractions(response)
     }
@@ -60,7 +71,7 @@ class HttpsEnforcerKotlinTest {
         val httpsEnforcer = HttpsEnforcer()
         `when`(request.getHeader("x-forwarded-proto")).thenReturn(null)
 
-        httpsEnforcer.doFilter(request, response, chain)
+        httpsEnforcer.doFilter(request, response, filterChain)
 
         verifyZeroInteractions(response)
     }
@@ -70,7 +81,7 @@ class HttpsEnforcerKotlinTest {
         val httpsEnforcer = HttpsEnforcer()
         `when`(request.getHeader("x-forwarded-proto")).thenReturn("https")
 
-        httpsEnforcer.doFilter(request, response, chain)
+        httpsEnforcer.doFilter(request, response, filterChain)
 
         verifyZeroInteractions(response)
     }
@@ -81,15 +92,15 @@ class HttpsEnforcerKotlinTest {
 
         httpsEnforcer.destroy()
 
-        verifyZeroInteractions(mockedFilterConfig)
+        verifyZeroInteractions(filterConfig)
     }
 
     @Test
     fun shouldInitWithFilterConfig() {
         val httpsEnforcer = HttpsEnforcer()
 
-        httpsEnforcer.init(mockedFilterConfig)
+        httpsEnforcer.init(filterConfig)
 
-        assertThat(httpsEnforcer.filterConfig).isEqualTo(mockedFilterConfig)
+        assertThat(httpsEnforcer.filterConfig).isEqualTo(filterConfig)
     }
 }

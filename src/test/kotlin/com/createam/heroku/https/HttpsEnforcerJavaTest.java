@@ -34,7 +34,7 @@ public class HttpsEnforcerJavaTest {
     private HttpServletResponse response;
 
     @Mock
-    private FilterChain chain;
+    private FilterChain filterChain;
 
     @Mock
     private FilterConfig mockedFilterConfig;
@@ -50,7 +50,7 @@ public class HttpsEnforcerJavaTest {
         when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
         when(request.getRequestURI()).thenReturn("");
 
-        enforcer.doFilter(request, response, chain);
+        enforcer.doFilter(request, response, filterChain);
 
         ArgumentCaptor<String> redirectCaptor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(redirectCaptor.capture());
@@ -61,7 +61,7 @@ public class HttpsEnforcerJavaTest {
     public void shouldNotEnforceHttps_onHerokuOverHttps() {
         when(request.getHeader("x-forwarded-proto")).thenReturn("https");
 
-        enforcer.doFilter(request, response, chain);
+        enforcer.doFilter(request, response, filterChain);
 
         verifyZeroInteractions(response);
     }
@@ -70,7 +70,7 @@ public class HttpsEnforcerJavaTest {
     public void shouldDoNothing_whenHeaderIsEmpty() {
         when(request.getHeader("x-forwarded-proto")).thenReturn(null);
 
-        enforcer.doFilter(request, response, chain);
+        enforcer.doFilter(request, response, filterChain);
 
         verifyZeroInteractions(response);
     }
@@ -79,7 +79,7 @@ public class HttpsEnforcerJavaTest {
     public void shouldDoNothing_overHttps() {
         when(request.getHeader("x-forwarded-proto")).thenReturn("https");
 
-        enforcer.doFilter(request, response, chain);
+        enforcer.doFilter(request, response, filterChain);
 
         verifyZeroInteractions(response);
     }
@@ -90,7 +90,7 @@ public class HttpsEnforcerJavaTest {
         when(request.getServerName()).thenReturn(TEST_SERVER_NAME);
         when(request.getRequestURI()).thenReturn(TEST_REQUEST_URI);
 
-        enforcer.doFilter(request, response, chain);
+        enforcer.doFilter(request, response, filterChain);
 
         ArgumentCaptor<String> redirectCaptor = ArgumentCaptor.forClass(String.class);
         verify(response).sendRedirect(redirectCaptor.capture());
