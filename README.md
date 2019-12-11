@@ -22,10 +22,11 @@ All you have to do is to add dependency to your project and enable features in `
 ```groovy
 compile('io.github.createam-labs:spring-boot-starter-heroku:1.1')
 ````
-##  Features 
-| name | description | property |
-| ------ | ------ | ------ |
-| 🔒httpsEnforcer | enforce https under the [thymeleaf](https://www.thymeleaf.org/) and [mustache](https://mustache.github.io/) templates (_note that, it will work after you deploy application to heroku_) | `heroku.enforceHttps=true`
+##  Https enforcing
+In `application.properties` add following:
+```properties
+heroku.enforceHttps=true
+```
 
 ## Examples
 Application which works with this starter can be found [here](http://createam-labs.herokuapp.com/)  
