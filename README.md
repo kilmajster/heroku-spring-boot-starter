@@ -1,7 +1,6 @@
 # Heroku spring boot starter 
 This starter is built to simplify https enforcing in projects hosted on [heroku](https://www.heroku.com/) cloud platform ☁️
 
-[![Build Status](https://img.shields.io/travis/createam-labs/spring-boot-starter-heroku/master.svg?logo=travis)](https://travis-ci.org/createam-labs/spring-boot-starter-heroku)
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
 [![Coverage Status](https://coveralls.io/repos/github/createam-labs/spring-boot-starter-heroku/badge.svg?branch=master)](https://coveralls.io/github/createam-labs/spring-boot-starter-heroku?branch=master)
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
