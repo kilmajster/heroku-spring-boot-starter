@@ -4,7 +4,7 @@ This starter is built to simplify https enforcing in projects hosted on [heroku]
 [![Build status](https://ci.appveyor.com/api/projects/status/lr49dwaq8gou8hr8?svg=true)](https://ci.appveyor.com/project/createam-labs/spring-boot-starter-heroku)
 [![Coverage Status](https://coveralls.io/repos/github/createam-labs/spring-boot-starter-heroku/badge.svg?branch=master)](https://coveralls.io/github/createam-labs/spring-boot-starter-heroku?branch=master)
 ![GitHub last commit](https://img.shields.io/github/last-commit/createam-labs/spring-boot-starter-heroku.svg)
-[![maven-central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/io/github/createam-labs/spring-boot-starter-heroku/maven-metadata.xml.svg)](http://search.maven.org/#artifactdetails%7Cio.github.createam-labs%7Cspring-boot-starter-heroku%7C1.1%7Cjar)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.createam-labs/spring-boot-starter-heroku/1.1)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/createam-labs/spring-boot-starter-heroku)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/createam-labs/spring-boot-starter-heroku/blob/master/LICENSE)
 
